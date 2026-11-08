@@ -1,6 +1,6 @@
-# Huemist
+# MistPen
 
-Pre-launch website for **Huemist**: colour-coded, refillable 3 ml spray pens for perfume, hand sanitizer and mouth spray. 45 kr each, 3 for 100 kr.
+Pre-launch website for **MistPen**: colour-coded, refillable 3 ml spray pens for perfume, hand sanitizer and mouth spray. 45 kr each, 3 for 100 kr.
 
 Built with Next.js (App Router), Tailwind CSS 3 and Framer Motion.
 
