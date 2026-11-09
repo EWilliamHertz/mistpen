@@ -2,88 +2,94 @@ export type HueId = "scent" | "fresh" | "clean" | "free";
 
 export interface Hue {
   id: HueId;
-  /** Colour name */
+  /** Färgnamn */
   name: string;
-  /** The job this hue is for. Also printed on the pen label. */
+  /** Ändamålet färgen står för. Visas också på klistermärkena. */
   job: string;
   color: string;
-  /** Soft tint used for backgrounds */
+  /** Mjuk nyans till bakgrunder */
   soft: string;
-  /** Readable text colour on top of `color` */
+  /** Läsbar textfärg ovanpå `color` */
   ink: string;
+  /** Frilagd produktbild (public/pens) */
+  image: string;
   tagline: string;
   scenario: string;
-  fillWith: string;
+  optimizedFor: string;
   notes: string[];
 }
 
 export const HUES: Hue[] = [
   {
     id: "scent",
-    name: "Coral",
-    job: "Scent",
-    color: "#FF6B5E",
-    soft: "#FFE3DF",
-    ink: "#1B1B2F",
-    tagline: "Your signature, in your pocket.",
+    name: "Lila",
+    job: "Doft",
+    color: "#9B51E0",
+    soft: "#EEE3FA",
+    ink: "#FFFFFF",
+    image: "/pens/purple.png",
+    tagline: "Din signaturdoft, alltid till hands.",
     scenario:
-      "Desk drawer, gym bag, evening out. A quick refresh without carrying the full bottle.",
-    fillWith: "Your favourite perfume or body mist",
+      "Skrivbordslådan, gymväskan, kvällen ute. Ett snabbt puff utan att behöva bära hela flaskan.",
+    optimizedFor: "Parfym och kroppsdimma",
     notes: [
-      "Decant from your own bottle",
-      "Keep it out of direct sun and heat",
-      "Spray on clothes or skin as you normally would",
+      "Liten och diskret i fickan",
+      "Fin dimma som passar dofter",
+      "Förvara den skyddad från sol och värme",
     ],
   },
   {
     id: "fresh",
-    name: "Mint",
-    job: "Fresh",
-    color: "#3DDBB0",
-    soft: "#D6F7EC",
-    ink: "#0E2A24",
-    tagline: "A discreet spritz after coffee or lunch.",
+    name: "Klar",
+    job: "Fräsch",
+    color: "#7CCBD9",
+    soft: "#E2F4F7",
+    ink: "#0B2A31",
+    image: "/pens/clear.png",
+    tagline: "Ett diskret puff efter kaffet eller lunchen.",
     scenario:
-      "Meetings, dates, long commutes. Keep it in your pocket and keep it for the mouth only.",
-    fillWith: "A mouth spray made for use in the mouth",
+      "Möten, dejter, långa pendlingsresor. Ha den i fickan och använd den bara till ett ändamål.",
+    optimizedFor: "Munspray",
     notes: [
-      "Dedicated to mouth sprays only, never swapped",
-      "Use only products made for oral use",
-      "Personal item: do not share it",
+      "Håll pennan till ett enda ändamål",
+      "Personlig: dela den inte med andra",
+      "Följ alltid anvisningarna för det du använder",
     ],
   },
   {
     id: "clean",
-    name: "Sky",
-    job: "Clean",
-    color: "#4DA3FF",
-    soft: "#DCEBFF",
-    ink: "#0B1F3A",
-    tagline: "Clean hands within reach.",
+    name: "Blå",
+    job: "Ren",
+    color: "#2F8FE0",
+    soft: "#DCEBFA",
+    ink: "#08213D",
+    image: "/pens/blue.png",
+    tagline: "Rena händer inom räckhåll.",
     scenario:
-      "Bus, market, gym, lunch break. One press and you are ready to carry on.",
-    fillWith: "A hand sanitizer you trust",
+      "Bussen, torget, gymmet, lunchrasten. Ett tryck och du är redo att gå vidare.",
+    optimizedFor: "Handsprit",
     notes: [
-      "Alcohol-based products are flammable: keep away from flames and heat",
-      "Keep out of reach of small children",
-      "Follow the instructions of the sanitizer you fill it with",
+      "Fin dimma med ett enkelt tryck",
+      "Alkoholbaserade produkter är brandfarliga: håll dem borta från låga och värme",
+      "Förvaras utom räckhåll för småbarn",
     ],
   },
   {
     id: "free",
-    name: "Graphite",
-    job: "Free",
-    color: "#2B2D42",
+    name: "Grå",
+    job: "Fri",
+    color: "#3A3D52",
     soft: "#E4E5EE",
     ink: "#FFFFFF",
-    tagline: "Make the code your own.",
+    image: "/pens/grey.png",
+    tagline: "Gör färgkoden till din egen.",
     scenario:
-      "Label it yourself with the sticker sheet and give it a job nobody else has thought of.",
-    fillWith: "A product that suits a fine mist, with your own label on it",
+      "Märk den själv med klistermärkena och ge den ett uppdrag som ingen annan har tänkt på.",
+    optimizedFor: "Det du själv väljer att märka upp den för",
     notes: [
-      "Use the sticker sheet to label what is inside",
-      "Only fill it with liquids that are safe for how you will use them",
-      "One pen, one liquid, always",
+      "Använd klistermärkena för att märka pennan",
+      "Välj bara vätskor som passar hur du ska använda dem",
+      "En penna, en vätska – alltid",
     ],
   },
 ];
@@ -92,7 +98,7 @@ export const SINGLE_PRICE = 45;
 export const BUNDLE_SIZE = 3;
 export const BUNDLE_PRICE = 100;
 
-/** Price in kr (incl. VAT) for `n` pens: every 3 for 100 kr, the rest at 45 kr. */
+/** Pris i kr (inkl. moms) för `n` pennor: varje 3-pack för 100 kr, resten för 45 kr styck. */
 export function priceFor(n: number): number {
   const bundles = Math.floor(n / BUNDLE_SIZE);
   const rest = n % BUNDLE_SIZE;
@@ -106,31 +112,31 @@ export interface Faq {
 
 export const FAQS: Faq[] = [
   {
-    q: "Do the pens come filled?",
-    a: "No. Every pen arrives empty and ready to fill, so you choose the perfume, hand sanitizer or mouth spray you already like. You can refill it as often as you want.",
+    q: "Vad är MistPen?",
+    a: "En påfyllningsbar sprayflaska på 3 ml i pennformat. Den är optimerad för parfym, handsprit och munspray, och levereras utan innehåll.",
   },
   {
-    q: "Why colour-code?",
-    a: "In a bag, one pen looks like any other. One hue per job means you never reach for the mouth spray when you meant to sanitize your hands. Prefer a single colour? Use the label stickers instead.",
+    q: "Varför färgkodning?",
+    a: "I väskan ser alla pennor likadana ut. En färg per ändamål gör att du aldrig tar fel penna. Föredrar du en enda färg? Använd klistermärkena och märk upp pennorna själv.",
   },
   {
-    q: "Can I use one pen for more than one thing?",
-    a: "We recommend not. Keep each pen for one liquid, and never move a pen between mouth use and anything else.",
+    q: "Kan jag använda en penna till flera saker?",
+    a: "Vi rekommenderar det inte. Håll varje penna till ett ändamål och byt aldrig användning mellan pennorna.",
   },
   {
-    q: "How much does a pen hold?",
-    a: "3 ml. That is pocket-sized and well inside the 100 ml carry-on liquids limit. How long it lasts depends on the liquid and how often you spray.",
+    q: "Hur mycket rymmer pennan?",
+    a: "3 ml. Den får plats i fickan och ryms med god marginal inom handbagagets gräns på 100 ml för vätskor. Hur länge det räcker beror på vad du använder den till och hur ofta du sprayar.",
   },
   {
-    q: "Is it okay to use for a mouth spray?",
-    a: "Use the Fresh pen only with products designed for use in the mouth, keep it dedicated to that, and follow the care sheet that comes with it. For questions about a specific product, ask its maker.",
+    q: "Passar den för munspray?",
+    a: "Den klara pennan är optimerad för munspray. Håll den till det ändamålet, dela den inte med andra och följ anvisningarna för produkten du använder. Frågor om en specifik produkt ställer du till tillverkaren.",
   },
   {
-    q: "When can I order?",
-    a: "We are opening soon. Join the list and you will be first to know, with launch details sent by email.",
+    q: "När kan jag beställa?",
+    a: "Vi öppnar snart. Gå med i listan så får du veta först, med lanseringsinformation via e-post.",
   },
   {
-    q: "Can I get custom colours for my team or event?",
-    a: "Team and event packs in your own colours are planned. Leave your email and mention it, and we will be in touch.",
+    q: "Kan vi få egna färger till vårt team eller event?",
+    a: "Team- och eventpaket i egna färger är på gång. Lämna din e-post och nämn det, så hör vi av oss.",
   },
 ];
