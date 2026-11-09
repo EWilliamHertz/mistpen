@@ -21,7 +21,7 @@ const PARTICLES = Array.from({ length: 16 }, (_, i) => {
 export default function Mist({ burst, color }: { burst: number; color: string }) {
   if (burst === 0) return null;
   return (
-    <div className="pointer-events-none absolute left-1/2 top-[5.4%] h-0 w-0" aria-hidden="true">
+    <div className="pointer-events-none absolute left-1/2 top-[0.5%] h-0 w-0" aria-hidden="true">
       {PARTICLES.map((p, i) => (
         <motion.span
           key={`${burst}-${i}`}

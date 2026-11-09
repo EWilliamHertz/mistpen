@@ -3,13 +3,13 @@
 import { motion } from "framer-motion";
 
 const ITEMS = [
-  "Perfume",
-  "Hand sanitizer",
-  "Mouth spray",
+  "Parfym",
+  "Handsprit",
+  "Munspray",
   "3 ml",
-  "Pocket size",
-  "Colour-coded",
-  "Refillable",
+  "Fickformat",
+  "Färgkodad",
+  "Påfyllningsbar",
 ];
 
 export default function Marquee() {
@@ -25,7 +25,7 @@ export default function Marquee() {
         {row.map((t, i) => (
           <span key={i} className="flex items-center">
             <span className="px-5">{t}</span>
-            <span className="h-2 w-2 rounded-full bg-hue-coral" />
+            <span className="h-2 w-2 rounded-full bg-hue-purple" />
           </span>
         ))}
       </motion.div>

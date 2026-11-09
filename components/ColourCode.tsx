@@ -14,17 +14,17 @@ export default function ColourCode() {
   return (
     <section id="colours" className="mx-auto max-w-6xl px-5 py-24">
       <Reveal>
-        <p className="eyebrow">The colour code</p>
-        <h2 className="h2 mt-3 max-w-2xl">One hue, one job.</h2>
+        <p className="eyebrow">Färgkoden</p>
+        <h2 className="h2 mt-3 max-w-2xl">En färg, ett ändamål.</h2>
         <p className="mt-4 max-w-xl text-lg text-ink/70">
-          In a bag, every pen looks the same. So we made the colour the label. Pick a hue to see
-          what it is for.
+          I väskan ser alla pennor likadana ut. Därför blev färgen etiketten. Välj en färg och se
+          vad den är till för.
         </p>
       </Reveal>
 
       <div
         role="tablist"
-        aria-label="Choose a hue"
+        aria-label="Välj färg"
         className="mt-10 flex flex-wrap gap-2"
       >
         {HUES.map((h) => {
@@ -80,7 +80,7 @@ export default function ColourCode() {
                 initial={{ rotate: -20, y: 30 }}
                 animate={{ rotate: -10, y: 0 }}
                 transition={{ type: "spring", stiffness: 120, damping: 14 }}
-                className="relative h-[340px] w-[78px]"
+                className="relative h-[360px] w-[44px]"
               >
                 <Pen hue={hue} className="h-full w-full drop-shadow-xl" />
               </motion.div>
@@ -101,9 +101,9 @@ export default function ColourCode() {
 
               <div className="mt-6 rounded-2xl bg-white p-5 shadow-soft">
                 <p className="text-xs font-bold uppercase tracking-widest text-ink/50">
-                  Fill it with
+                  Optimerad för
                 </p>
-                <p className="mt-1 font-bold">{hue.fillWith}</p>
+                <p className="mt-1 font-bold">{hue.optimizedFor}</p>
                 <ul className="mt-4 space-y-2 text-sm text-ink/75">
                   {hue.notes.map((n) => (
                     <li key={n} className="flex gap-2">
@@ -121,16 +121,16 @@ export default function ColourCode() {
       <Reveal className="mt-10">
         <div className="grid gap-4 rounded-3xl bg-white p-6 shadow-soft sm:grid-cols-2">
           <div>
-            <p className="font-extrabold">Colour-code it</p>
+            <p className="font-extrabold">Färgkoda den</p>
             <p className="mt-1 text-ink/70">
-              The pen colour tells you the job at a glance. No reading, no guessing.
+              Pennans färg visar ändamålet direkt. Ingen läsning, ingen gissning.
             </p>
           </div>
           <div>
-            <p className="font-extrabold">Or label it</p>
+            <p className="font-extrabold">Eller märk upp den</p>
             <p className="mt-1 text-ink/70">
-              Every pack includes a sticker sheet with all four labels, for the pens you want to
-              relabel or the jobs we have not thought of.
+              Varje paket innehåller ett ark klistermärken med alla fyra etiketter, till pennor du vill
+              märka om eller ändamål vi inte har tänkt på.
             </p>
           </div>
         </div>

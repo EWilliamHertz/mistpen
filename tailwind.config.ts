@@ -8,10 +8,10 @@ const config: Config = {
         cream: "#FBF7F2",
         ink: "#1B1B2F",
         hue: {
-          coral: "#FF6B5E",
-          mint: "#3DDBB0",
-          sky: "#4DA3FF",
-          graphite: "#2B2D42",
+          purple: "#9B51E0",
+          frost: "#7CCBD9",
+          blue: "#2F8FE0",
+          graphite: "#3A3D52",
         },
       },
       fontFamily: {

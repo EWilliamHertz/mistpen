@@ -4,9 +4,9 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "MistPen: Pick your hue. Spritz your day.",
+  title: "MistPen: Välj din färg. Puffa dig fräsch.",
   description:
-    "Colour-coded 3 ml refillable spray pens for perfume, hand sanitizer and mouth spray. 45 kr each, 3 for 100 kr.",
+    "Färgkodade, påfyllningsbara 3 ml-spraypennor, optimerade för parfym, handsprit och munspray. 45 kr styck, 3 för 100 kr.",
 };
 
 export const viewport: Viewport = {
@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sv">
       <body className="bg-cream font-sans text-ink antialiased">
         <Providers>{children}</Providers>
       </body>

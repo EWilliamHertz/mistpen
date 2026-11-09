@@ -11,9 +11,9 @@ type Status = "idle" | "sending" | "done" | "error" | "unconfigured";
 const ENDPOINT = process.env.NEXT_PUBLIC_WAITLIST_URL;
 
 const MESSAGES: Record<Exclude<Status, "idle" | "sending">, string> = {
-  done: "You are on the list. We will email you when the pens are ready.",
-  error: "Something went wrong. Please try again in a moment.",
-  unconfigured: "Sign-up is not live yet. Please check back soon.",
+  done: "Du står på listan. Vi mejlar dig när pennorna är redo.",
+  error: "Något gick fel. Försök igen om en stund.",
+  unconfigured: "Anmälan är inte öppen än. Titta tillbaka snart.",
 };
 
 export default function Waitlist() {
@@ -59,10 +59,10 @@ export default function Waitlist() {
           </div>
 
           <div className="relative">
-            <h2 className="h2">Be first to pick your hue.</h2>
+            <h2 className="h2">Bli först att välja din färg.</h2>
             <p className="mx-auto mt-4 max-w-md text-lg text-ink/70">
-              Join the list for launch news. Want custom colours for a team or event? Tell us in a
-              reply.
+              Gå med i listan för lanseringsnyheter. Vill ni ha egna färger till ett team eller ett
+              event? Berätta det i ett svar.
             </p>
 
             <form
@@ -70,7 +70,7 @@ export default function Waitlist() {
               className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
             >
               <label htmlFor="email" className="sr-only">
-                Email address
+                E-postadress
               </label>
               <input
                 id="email"
@@ -78,7 +78,7 @@ export default function Waitlist() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder="du@exempel.se"
                 className="flex-1 rounded-full border-2 border-ink/10 bg-cream px-5 py-3 outline-none transition focus:border-ink"
               />
               <motion.button
@@ -87,7 +87,7 @@ export default function Waitlist() {
                 disabled={status === "sending"}
                 className="rounded-full bg-ink px-6 py-3 font-bold text-cream transition hover:scale-105 disabled:opacity-60"
               >
-                {status === "sending" ? "Sending…" : "Join the list"}
+                {status === "sending" ? "Skickar…" : "Gå med"}
               </motion.button>
             </form>
 

@@ -11,8 +11,8 @@ export default function Faq() {
   return (
     <section id="faq" className="mx-auto max-w-3xl px-5 py-24">
       <Reveal>
-        <p className="eyebrow">Questions</p>
-        <h2 className="h2 mt-3">Good to know.</h2>
+        <p className="eyebrow">Frågor</p>
+        <h2 className="h2 mt-3">Bra att veta.</h2>
       </Reveal>
 
       <div className="mt-10 divide-y divide-ink/10 rounded-3xl bg-white px-6 shadow-soft">

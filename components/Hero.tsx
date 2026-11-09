@@ -18,7 +18,7 @@ export default function Hero() {
     return () => clearInterval(t);
   }, [auto]);
 
-  // Spray whenever the pen changes.
+  // Puffa varje gång pennan byts.
   useEffect(() => {
     setBurst((b) => b + 1);
   }, [index]);
@@ -38,7 +38,7 @@ export default function Hero() {
               animate={{ backgroundColor: hue.color }}
               transition={{ duration: 0.6 }}
             />
-            3 ml refillable spray pen
+            3 ml påfyllningsbar spraypenna
           </motion.p>
 
           <motion.h1
@@ -47,7 +47,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className="text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
           >
-            Pick your hue.
+            Välj din färg.
             <br />
             <span className="relative isolate inline-block">
               <motion.span
@@ -55,7 +55,7 @@ export default function Hero() {
                 animate={{ backgroundColor: hue.color }}
                 transition={{ duration: 0.7 }}
               />
-              Spritz your day.
+              Puffa dig fräsch.
             </span>
           </motion.h1>
 
@@ -65,8 +65,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mt-6 max-w-md text-lg text-ink/70"
           >
-            Pocket-size spray pens for perfume, hand sanitizer and mouth spray. One colour per
-            job, so you never reach for the wrong one.
+            Spraypennor i fickformat, optimerade för parfym, handsprit och munspray. En färg per
+            ändamål, så att du aldrig tar fel.
           </motion.p>
 
           <motion.div
@@ -79,19 +79,18 @@ export default function Hero() {
               href="#pricing"
               className="rounded-full bg-ink px-6 py-3 font-bold text-cream transition hover:scale-105"
             >
-              Build your set, from {SINGLE_PRICE} kr
+              Bygg ditt set, från {SINGLE_PRICE} kr
             </a>
             <a
               href="#colours"
               className="rounded-full border-2 border-ink/15 px-6 py-3 font-bold transition hover:border-ink"
             >
-              See the colour code
+              Se färgkoden
             </a>
           </motion.div>
 
           <p className="mt-5 text-sm text-ink/50">
-            {SINGLE_PRICE} kr each · {BUNDLE_SIZE} for {BUNDLE_PRICE} kr · pens arrive empty,
-            ready to fill
+            {SINGLE_PRICE} kr styck · {BUNDLE_SIZE} för {BUNDLE_PRICE} kr · påfyllningsbar
           </p>
         </div>
 
@@ -110,12 +109,12 @@ export default function Hero() {
           <div style={{ transform: "rotate(-12deg)" }}>
             <motion.button
               type="button"
-              aria-label={`Spray the ${hue.name} ${hue.job} pen`}
+              aria-label={`Puffa med den ${hue.name.toLowerCase()}a pennan (${hue.job})`}
               onClick={() => setBurst((b) => b + 1)}
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               whileTap={{ scale: 0.96 }}
-              className="relative block h-[340px] w-[78px] cursor-pointer"
+              className="relative block h-[380px] w-[48px] cursor-pointer"
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -153,7 +152,7 @@ export default function Hero() {
               <button
                 key={h.id}
                 type="button"
-                aria-label={`Show the ${h.name} ${h.job} pen`}
+                aria-label={`Visa pennan ${h.name} (${h.job})`}
                 aria-pressed={i === index}
                 onClick={() => {
                   setAuto(false);
@@ -172,7 +171,7 @@ export default function Hero() {
               onClick={() => setBurst((b) => b + 1)}
               className="text-sm font-bold"
             >
-              Spritz
+              Puffa
             </button>
           </div>
         </div>

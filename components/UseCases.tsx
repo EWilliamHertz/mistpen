@@ -15,21 +15,21 @@ interface UseCase {
 const CASES: UseCase[] = [
   {
     id: "scent",
-    title: "Perfume on the go",
-    line: "Decant your signature scent and refresh before the meeting, after the gym, on the way out.",
-    bullets: ["Fits any pocket or small bag", "Fill from your own bottle", "Refill as often as you like"],
+    title: "Parfym på språng",
+    line: "Ta med doften du älskar och fräscha upp dig före mötet, efter gymmet eller på väg ut.",
+    bullets: ["Får plats i fickan eller en liten väska", "Optimerad för parfym", "Påfyllningsbar så ofta du vill"],
   },
   {
     id: "clean",
-    title: "Hand sanitizer, handy",
-    line: "Keep clean hands within reach on the bus, at the market, before lunch.",
-    bullets: ["One press, fine mist", "Fill with the sanitizer you trust", "Clipped to a bag or tucked in a coat"],
+    title: "Handsprit till hands",
+    line: "Ha rena händer inom räckhåll på bussen, på torget och före lunch.",
+    bullets: ["Ett tryck, fin dimma", "Optimerad för handsprit", "Fäst i väskan eller stoppa i jackan"],
   },
   {
     id: "fresh",
-    title: "Mouth spray, always ready",
-    line: "A discreet spritz after coffee or lunch. This pen stays for the mouth, and only the mouth.",
-    bullets: ["Use mouth sprays made for oral use", "Never swap its contents", "Personal item: do not share it"],
+    title: "Munspray, alltid redo",
+    line: "Ett diskret puff efter kaffet eller lunchen. Den här pennan hålls till ett enda ändamål.",
+    bullets: ["Optimerad för munspray", "Byt aldrig användning mellan pennor", "Personlig: dela den inte"],
   },
 ];
 
@@ -38,8 +38,8 @@ export default function UseCases() {
     <section id="uses" className="bg-white/60 py-24">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
-          <p className="eyebrow">Three jobs, one pocket</p>
-          <h2 className="h2 mt-3 max-w-2xl">Made for the things you carry anyway.</h2>
+          <p className="eyebrow">Tre ändamål, en ficka</p>
+          <h2 className="h2 mt-3 max-w-2xl">Gjord för det du ändå bär med dig.</h2>
         </Reveal>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -73,7 +73,7 @@ export default function UseCases() {
                       ))}
                     </ul>
                     <p className="mt-6 text-xs font-bold uppercase tracking-widest text-ink/50">
-                      Hue: {hue.name} · {hue.job}
+                      Färg: {hue.name} · {hue.job}
                     </p>
                   </div>
                 </motion.article>

@@ -6,18 +6,18 @@ import Reveal from "./Reveal";
 const STEPS = [
   {
     n: "1",
-    title: "Pick your hue",
-    text: "Choose a colour for each job. Coral for scent, mint for fresh, sky for clean, graphite for your own.",
+    title: "Välj din färg",
+    text: "Välj en färg för varje ändamål. Lila för doft, klar för fräsch, blå för ren och grå för din egen.",
   },
   {
     n: "2",
-    title: "Fill it, once",
-    text: "Fill each pen with one product made for that job, following the care card in the pack.",
+    title: "Ett ändamål per penna",
+    text: "Håll varje penna till en enda sak och följ skötselkortet i paketet.",
   },
   {
     n: "3",
-    title: "Label and spritz",
-    text: "Stick on a label if you like, clip it to your bag, and spritz whenever you need it.",
+    title: "Märk och puffa",
+    text: "Sätt på en etikett om du vill, fäst pennan i väskan och puffa när du behöver.",
   },
 ];
 
@@ -25,8 +25,8 @@ export default function HowItWorks() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-24">
       <Reveal>
-        <p className="eyebrow">How it works</p>
-        <h2 className="h2 mt-3">Three steps. No fuss.</h2>
+        <p className="eyebrow">Så funkar det</p>
+        <h2 className="h2 mt-3">Tre steg. Inget krångel.</h2>
       </Reveal>
 
       <div className="relative mt-12 grid gap-8 md:grid-cols-3">

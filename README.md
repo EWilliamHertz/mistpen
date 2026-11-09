@@ -1,51 +1,56 @@
 # MistPen
 
-Pre-launch website for **MistPen**: colour-coded, refillable 3 ml spray pens for perfume, hand sanitizer and mouth spray. 45 kr each, 3 for 100 kr.
+Webbplats inför lansering för **MistPen**: färgkodade, påfyllningsbara spraypennor på 3 ml, optimerade för parfym, handsprit och munspray. 45 kr styck, 3 för 100 kr.
 
-Built with Next.js (App Router), Tailwind CSS 3 and Framer Motion.
+Byggd med Next.js (App Router), Tailwind CSS 3 och Framer Motion. Hela sidan är på svenska.
 
-## Run it
+## Kör den
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # production build
-npm run start    # serve the production build
+npm run build    # produktionsbygge
+npm run start    # kör produktionsbygget
 ```
 
-## What is on the page
+## Vad som finns på sidan
 
-- **Hero:** an animated pen that cycles through the four hues and sprays a mist burst (click the pen or "Spritz").
-- **Colour code:** tabs for Scent (coral), Fresh (mint), Clean (sky) and Free (graphite), each with its use and fill guidance.
-- **Uses:** perfume, hand sanitizer, mouth spray.
-- **How it works**, **Pricing** (a set builder that applies the 3-for-100 kr rule), **House rules**, **FAQ** and a **waitlist** form.
+- **Hero:** en animerad penna som bläddrar mellan de fyra färgerna och sprayar en dimma (klicka på pennan eller "Puffa").
+- **Färgkoden:** flikar för Lila (doft), Klar (fräsch), Blå (ren) och Grå (fri), med användning och råd.
+- **Användning:** parfym, handsprit, munspray.
+- **Så funkar det**, **Pris** (en setbyggare som räknar ut 3 för 100 kr), **Husregler**, **FAQ** och en **väntelista**.
 
-Motion respects `prefers-reduced-motion` through `MotionConfig` in `components/Providers.tsx`.
+Animationerna respekterar `prefers-reduced-motion` via `MotionConfig` i `components/Providers.tsx`.
 
-## Where to edit things
+## Bilderna
 
-| What | Where |
+Pennbilderna i `public/pens/` är frilagda ur produktbilden från Alibaba (blå, lila, klar och grå), som transparenta PNG-filer på 100 × 846 px. Varje färg pekar på sin bild via `image` i `lib/data.ts`. Gröna och röda pennan finns också i mappen men används inte.
+
+Kontrollera att du har rätt att använda leverantörens produktbilder i din egen butik. Ersätt dem med egna produktfoton när du har prover.
+
+## Var du ändrar saker
+
+| Vad | Var |
 | --- | --- |
-| Hues, colours, copy for each use, prices, FAQ | `lib/data.ts` |
-| Pen illustration | `components/Pen.tsx` |
-| Page order | `app/page.tsx` |
-| Brand colours and fonts | `tailwind.config.ts` |
+| Färger, texter per användning, priser, FAQ | `lib/data.ts` |
+| Pennbild | `components/Pen.tsx` och `public/pens/` |
+| Sidans ordning | `app/page.tsx` |
+| Varumärkesfärger och typsnitt | `tailwind.config.ts` |
 
-Prices live in `lib/data.ts` (`SINGLE_PRICE`, `BUNDLE_SIZE`, `BUNDLE_PRICE`) and the pricing maths is in `priceFor()`.
+Priserna ligger i `lib/data.ts` (`SINGLE_PRICE`, `BUNDLE_SIZE`, `BUNDLE_PRICE`) och prisberäkningen i `priceFor()`.
 
-## Connect the waitlist
+## Koppla väntelistan
 
-The form posts `{ "email": "..." }` as JSON to the URL in `NEXT_PUBLIC_WAITLIST_URL`. Copy `.env.example` to `.env.local` and set it to a Formspree, Basin or Getform endpoint (or your own). Until it is set, the form says sign-up is not live rather than pretending it saved the address.
+Formuläret skickar `{ "email": "..." }` som JSON till adressen i `NEXT_PUBLIC_WAITLIST_URL`. Kopiera `.env.example` till `.env.local` och peka den mot en Formspree-, Basin- eller Getform-adress (eller din egen). Tills den är satt säger formuläret att anmälan inte är öppen, i stället för att låtsas spara adressen.
 
-## Deploy
+## Publicera
 
-Push to GitHub and import the repo in Vercel. Add `NEXT_PUBLIC_WAITLIST_URL` under the project's environment variables. Then connect your domain (after you have confirmed it is available and registered).
+Pusha till GitHub och importera repot i Vercel. Lägg till `NEXT_PUBLIC_WAITLIST_URL` under projektets miljövariabler. Koppla sedan din domän.
 
-## Before you go live
+## Innan du går live
 
-1. Register the domain and confirm the name is clear in the EUIPO and PRV trademark databases.
-2. Check the product copy against what the supplier actually ships: capacity, materials, and the mouth-pen test reports.
-3. Keep product claims modest. The site describes empty containers and makes no germ-killing or health claims.
-4. Add the legal pages a shop needs (terms, privacy policy, returns with the 14-day right of withdrawal, company details) before taking orders.
-5. For checkout, the quickest route is Stripe Payment Links or Shopify. The "Reserve my set" button currently jumps to the waitlist.
-6. The copy is in English. For the Swedish market, translate `lib/data.ts` and the component text.
+1. Registrera domänen och kontrollera att namnet är ledigt hos EUIPO och PRV.
+2. Jämför texterna med det leverantören faktiskt skickar: kapacitet, material och testrapporter.
+3. Håll påståenden återhållsamma. Sidan beskriver tomma behållare som är optimerade för olika användning, och gör inga påståenden om att döda bakterier eller om hälsa.
+4. Lägg till de juridiska sidor en butik behöver (villkor, integritetspolicy, retur med 14 dagars ångerrätt, företagsuppgifter) innan du tar emot beställningar.
+5. För kassa är snabbaste vägen Stripe Payment Links eller Shopify. Knappen "Reservera mitt set" hoppar just nu till väntelistan.
